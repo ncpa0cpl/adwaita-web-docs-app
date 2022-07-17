@@ -6,5 +6,7 @@ import "./index.css.proxy.js";
 const rootElem = document.getElementById("root");
 if (rootElem) {
   const root = createRoot(rootElem);
-  root.render(/* @__PURE__ */ React.createElement(Router, null, /* @__PURE__ */ React.createElement(App, null)));
+  root.render(/* @__PURE__ */ React.createElement(Router, {
+    basename: "adwaita-web-docs-app"
+  }, /* @__PURE__ */ React.createElement(App, null)));
 }

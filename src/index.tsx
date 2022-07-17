@@ -9,7 +9,8 @@ const rootElem = document.getElementById("root");
 if (rootElem) {
   const root = createRoot(rootElem);
   root.render(
-    <Router>
+    // TODO: make the base url specified by env variable
+    <Router basename="adwaita-web-docs-app">
       <App />
     </Router>
   );
