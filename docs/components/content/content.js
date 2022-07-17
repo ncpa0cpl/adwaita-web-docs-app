@@ -42,7 +42,7 @@ export function Content(_a) {
   return /* @__PURE__ */ React.createElement("div", __assign({
     className: cx(className, "content-root")
   }, props), /* @__PURE__ */ React.createElement(GithubCorner, {
-    className: "link",
+    className: "content-link",
     url: `https://github.com/${REPO_OWNER}/${REPO_NAME}`
   }), children);
 }

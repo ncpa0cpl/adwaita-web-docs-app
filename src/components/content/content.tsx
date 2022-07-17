@@ -12,7 +12,7 @@ export function Content({
   return (
     <div className={cx(className, "content-root")} {...props}>
       <GithubCorner
-        className={"link"}
+        className={"content-link"}
         url={`https://github.com/${REPO_OWNER}/${REPO_NAME}`}
       />
       {children}

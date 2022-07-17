@@ -8,10 +8,10 @@ export const HomePage = () => {
   const componentNames = typeDocs.useComponentNames();
   const renderComponentLink = (componentName) => {
     if (componentNames.some((name) => name === componentName)) {
-      return /* @__PURE__ */ React.createElement(Link, {
+      return /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement(Link, {
         to: `/${componentName}`,
         className: "link"
-      }, /* @__PURE__ */ React.createElement(Text, null, componentName));
+      }, /* @__PURE__ */ React.createElement(Text, null, componentName)));
     }
     return /* @__PURE__ */ React.createElement(React.Fragment, null);
   };
@@ -36,9 +36,9 @@ export const HomePage = () => {
     horizontal: true
   }, /* @__PURE__ */ React.createElement(Box, {
     className: "card"
-  }, /* @__PURE__ */ React.createElement("h3", null, "Layout"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, renderComponentLink("Box")), /* @__PURE__ */ React.createElement("li", null, renderComponentLink("Paned")), /* @__PURE__ */ React.createElement("li", null, renderComponentLink("Frame")))), /* @__PURE__ */ React.createElement(Box, {
+  }, /* @__PURE__ */ React.createElement("h3", null, "Layout"), /* @__PURE__ */ React.createElement("ul", null, renderComponentLink("Box"), renderComponentLink("Paned"), renderComponentLink("Frame"))), /* @__PURE__ */ React.createElement(Box, {
     className: "card"
-  }, /* @__PURE__ */ React.createElement("h3", null, "Input"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, renderComponentLink("Button")), /* @__PURE__ */ React.createElement("li", null, renderComponentLink("Input")), /* @__PURE__ */ React.createElement("li", null, renderComponentLink("Dropdown")), /* @__PURE__ */ React.createElement("li", null, renderComponentLink("DatePicker")))), /* @__PURE__ */ React.createElement(Box, {
+  }, /* @__PURE__ */ React.createElement("h3", null, "Input"), /* @__PURE__ */ React.createElement("ul", null, renderComponentLink("Button"), renderComponentLink("Input"), renderComponentLink("Dropdown"), renderComponentLink("DatePicker"))), /* @__PURE__ */ React.createElement(Box, {
     className: "card"
-  }, /* @__PURE__ */ React.createElement("h3", null, "Display"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, renderComponentLink("Label")), /* @__PURE__ */ React.createElement("li", null, renderComponentLink("Text")))))));
+  }, /* @__PURE__ */ React.createElement("h3", null, "Display"), /* @__PURE__ */ React.createElement("ul", null, renderComponentLink("Label"), renderComponentLink("Text"))))));
 };

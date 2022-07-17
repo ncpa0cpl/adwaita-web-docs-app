@@ -11,9 +11,11 @@ export const HomePage = () => {
   const renderComponentLink = (componentName: string) => {
     if (componentNames.some((name) => name === componentName)) {
       return (
-        <Link to={`/${componentName}`} className="link">
-          <Text>{componentName}</Text>
-        </Link>
+        <li>
+          <Link to={`/${componentName}`} className="link">
+            <Text>{componentName}</Text>
+          </Link>
+        </li>
       );
     }
     return <></>;
@@ -52,25 +54,25 @@ export const HomePage = () => {
           <Box className="card">
             <h3>Layout</h3>
             <ul>
-              <li>{renderComponentLink("Box")}</li>
-              <li>{renderComponentLink("Paned")}</li>
-              <li>{renderComponentLink("Frame")}</li>
+              {renderComponentLink("Box")}
+              {renderComponentLink("Paned")}
+              {renderComponentLink("Frame")}
             </ul>
           </Box>
           <Box className="card">
             <h3>Input</h3>
             <ul>
-              <li>{renderComponentLink("Button")}</li>
-              <li>{renderComponentLink("Input")}</li>
-              <li>{renderComponentLink("Dropdown")}</li>
-              <li>{renderComponentLink("DatePicker")}</li>
+              {renderComponentLink("Button")}
+              {renderComponentLink("Input")}
+              {renderComponentLink("Dropdown")}
+              {renderComponentLink("DatePicker")}
             </ul>
           </Box>
           <Box className="card">
             <h3>Display</h3>
             <ul>
-              <li>{renderComponentLink("Label")}</li>
-              <li>{renderComponentLink("Text")}</li>
+              {renderComponentLink("Label")}
+              {renderComponentLink("Text")}
             </ul>
           </Box>
         </Box>
