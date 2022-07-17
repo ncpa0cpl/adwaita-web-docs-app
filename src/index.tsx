@@ -6,6 +6,12 @@ import "./index.css";
 
 const rootElem = document.getElementById("root");
 
+window.history.replaceState(
+  null,
+  "",
+  window.location.href.replace(/\/\?\//g, "/")
+);
+
 if (rootElem) {
   const root = createRoot(rootElem);
   root.render(
