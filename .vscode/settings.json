@@ -10,6 +10,6 @@
       "url": "./node_modules/git-hook-tasks/dist/config/json-schema.json"
     }
   ],
-  "liveServer.settings.root": "dist",
+  "liveServer.settings.root": "docs",
   "liveServer.settings.file": "index.html"
 }

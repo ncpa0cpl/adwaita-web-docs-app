@@ -4,7 +4,7 @@
     "module": "commonjs",
     "jsx": "react",
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "docs",
     "rootDir": "./src",
     "downlevelIteration": true,
     "strict": true,
@@ -14,7 +14,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }
