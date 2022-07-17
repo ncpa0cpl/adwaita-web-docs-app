@@ -1,0 +1,64 @@
+{
+  "devDependencies": {
+    "@snowpack/plugin-sass": "^1.4.0",
+    "@swc/core": "^1.2.215",
+    "@swc/jest": "^0.2.21",
+    "@types/jest": "^28.1.6",
+    "@types/json-schema": "^7.0.11",
+    "@types/natural-compare": "^1.4.1",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "git-hook-tasks": "ncpa0cpl/git-hook-tasks",
+    "husky": "^8.0.1",
+    "jest": "^28.1.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-jsdoc": "^0.3.38",
+    "snowpack": "^3.8.8",
+    "typescript": "^4.7.4"
+  },
+  "name": "adwaita-web-docs-app",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "fix:lint": "eslint --fix .",
+    "fix:prettier": "prettier -w ./src .",
+    "test:jest": "jest --coverage",
+    "test:lint": "eslint .",
+    "test:prettier": "prettier -c ./src && prettier -c ./__tests__",
+    "test:tsc": "tsc --noEmit",
+    "build": "snowpack build --polyfill-node",
+    "start": "snowpack dev --polyfill-node"
+  },
+  "keywords": [],
+  "repository": {
+    "url": ""
+  },
+  "description": "",
+  "license": "MIT",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "adwaita-web": "0.1.1-canary-93ba06749a654649485b09698380bcc899f61593.0",
+    "axios": "^0.27.2",
+    "axios-cache-adapter": "^2.7.3",
+    "clsx": "^1.2.1",
+    "fzy.js": "^0.4.1",
+    "localforage": "^1.10.0",
+    "material-ui-json-schema-viewer": "^2.0.0",
+    "natural-compare": "^1.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-highlight": "^0.14.0",
+    "react-quarks": "^2.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-shadow-root": "^6.2.0"
+  }
+}
