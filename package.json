@@ -31,7 +31,7 @@
     "test:lint": "eslint .",
     "test:prettier": "prettier -c ./src && prettier -c ./__tests__",
     "test:tsc": "tsc --noEmit",
-    "build": "snowpack build --polyfill-node",
+    "build": "snowpack build --polyfill-node && touch ./docs/.nojekyll",
     "start": "snowpack dev --polyfill-node"
   },
   "keywords": [],
