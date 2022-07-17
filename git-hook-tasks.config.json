@@ -10,15 +10,6 @@
       {
         "name": "ESLint",
         "script": "test:lint"
-      },
-      {
-        "name": "Prettier",
-        "script": "test:prettier"
-      },
-      {
-        "mustRunAlone": true,
-        "name": "Jest Tests",
-        "script": "test:jest"
       }
     ],
     "pre-commit": [],
