@@ -15,6 +15,7 @@ module.exports = {
   packageOptions: {},
   devOptions: {},
   buildOptions: {
+    baseUrl: "/adwaita-web-docs-app",
     out: "./docs",
   },
 };
