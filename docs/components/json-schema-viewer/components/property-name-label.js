@@ -1,0 +1,1 @@
+import{Label as r}from"../../../_snowpack/pkg/adwaita-web.js";import e from"../../../_snowpack/pkg/react.js";export const PropertyNameLabel=({name:a})=>e.createElement("td",{className:"property-name-cell"},e.createElement(r,{bold:!0,className:"property-name"},a));

@@ -1,9 +1,9 @@
 import { Box, Label } from "adwaita-web";
-import SchemaViewer from "material-ui-json-schema-viewer";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { REPO_NAME, REPO_OWNER } from "../../adapters/github/constants";
 import { Content } from "../../components/content/content";
+import { JsonSchemaViewer } from "../../components/json-schema-viewer/json-schema-viewer";
 import { githubRepo } from "../../quarks/github-repo/github-repo";
 import type { TypeDocsComponentInfo } from "../../quarks/typedocs/typedocs";
 import { typeDocs } from "../../quarks/typedocs/typedocs";
@@ -45,7 +45,7 @@ export const ComponentDocViewPage = () => {
         {!component ? (
           <></>
         ) : (
-          <SchemaViewer key={componentName} schema={component.propsSchema} />
+          <JsonSchemaViewer schema={component.propsSchema} />
         )}
       </Box>
     </Content>

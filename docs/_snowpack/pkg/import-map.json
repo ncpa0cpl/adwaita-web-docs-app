@@ -6,7 +6,6 @@
     "clsx": "./clsx.js",
     "fzy.js": "./fzyjs.js",
     "localforage": "./localforage.js",
-    "material-ui-json-schema-viewer": "./material-ui-json-schema-viewer.js",
     "natural-compare": "./natural-compare.js",
     "prettier": "./prettier.js",
     "prettier/esm/parser-babel": "./prettier/esm/parser-babel.js",
@@ -14,6 +13,7 @@
     "react": "./react.js",
     "react-dom/client": "./react-dom/client.js",
     "react-highlight": "./react-highlight.js",
+    "react-json-view": "./react-json-view.js",
     "react-quarks": "./react-quarks.js",
     "react-router-dom": "./react-router-dom.js"
   }

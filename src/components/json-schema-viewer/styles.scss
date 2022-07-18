@@ -1,0 +1,66 @@
+.json-schema-viewer {
+    .button-group {
+        margin: 20px;
+    }
+
+    .raw-view {
+        margin-left: 25px;
+    }
+
+    .raw-view,
+    .schema-viewer-container {
+        border-radius: 5px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        table {
+            table {
+                margin-left: 15px;
+            }
+        }
+
+        tr {
+            &:not(:last-child):not(.no-border) {
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            td {
+                padding: 5px;
+            }
+
+            .property-name-cell {
+                vertical-align: text-top;
+            }
+
+            .property-name {
+                font-size: 1.1em;
+                padding-right: 10px;
+            }
+
+            .type-name {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .function-type {
+                color: #822c8d;
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .popover-type-ref {
+                font-weight: bold;
+                color: #030264;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.popover-type-schema-table {
+    margin-left: 10px;
+    margin-right: 10px;
+}
