@@ -1,3 +1,1 @@
-import {a as axios} from "./common/index-03e44bfd.js";
-export {a as default} from "./common/index-03e44bfd.js";
-import "./common/_polyfill-node:global-acbc543a.js";
+import"./common/index-d2627ea7.js";export{a as default}from"./common/index-d2627ea7.js";import"./common/_polyfill-node:global-acbc543a.js";

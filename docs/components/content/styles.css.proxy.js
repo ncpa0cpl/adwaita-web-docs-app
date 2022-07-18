@@ -1,8 +1,1 @@
-if (typeof document !== "undefined") {
-  const code = ".content-root {\n  position: relative;\n  padding: 2rem;\n}\n.content-root .content-link {\n  position: absolute;\n  top: 0;\n  right: 0;\n}";
-  const styleEl = document.createElement("style");
-  const codeEl = document.createTextNode(code);
-  styleEl.type = "text/css";
-  styleEl.appendChild(codeEl);
-  document.head.appendChild(styleEl);
-}
+if(typeof document!="undefined"){const t=".content-root{position:relative;padding:2rem}.content-root .content-link{position:absolute;top:0;right:0}",e=document.createElement("style"),o=document.createTextNode(t);e.type="text/css",e.appendChild(o),document.head.appendChild(e)}

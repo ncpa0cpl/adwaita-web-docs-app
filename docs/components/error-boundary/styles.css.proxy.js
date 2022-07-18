@@ -1,8 +1,1 @@
-if (typeof document !== "undefined") {
-  const code = ".error-boundary {\n  font-size: 18;\n  line-height: 1.5;\n}\n.error-boundary a {\n  color: inherit;\n  font-weight: bold;\n}";
-  const styleEl = document.createElement("style");
-  const codeEl = document.createTextNode(code);
-  styleEl.type = "text/css";
-  styleEl.appendChild(codeEl);
-  document.head.appendChild(styleEl);
-}
+if(typeof document!="undefined"){const t=".error-boundary{font-size:18;line-height:1.5}.error-boundary a{color:inherit;font-weight:bold}",e=document.createElement("style"),o=document.createTextNode(t);e.type="text/css",e.appendChild(o),document.head.appendChild(e)}

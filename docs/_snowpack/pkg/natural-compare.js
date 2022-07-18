@@ -1,41 +1,7 @@
-import {c as createCommonjsModule} from "./common/_commonjsHelpers-b3efd043.js";
-var naturalCompare_1 = createCommonjsModule(function(module) {
-  /*
-   * @version    1.4.0
-   * @date       2015-10-26
-   * @stability  3 - Stable
-   * @author     Lauri Rooden (https://github.com/litejs/natural-compare-lite)
-   * @license    MIT License
-   */
-  var naturalCompare = function(a, b) {
-    var i, codeA, codeB = 1, posA = 0, posB = 0, alphabet = String.alphabet;
-    function getCode(str, pos, code) {
-      if (code) {
-        for (i = pos; code = getCode(str, i), code < 76 && code > 65; )
-          ++i;
-        return +str.slice(pos - 1, i);
-      }
-      code = alphabet && alphabet.indexOf(str.charAt(pos));
-      return code > -1 ? code + 76 : (code = str.charCodeAt(pos) || 0, code < 45 || code > 127) ? code : code < 46 ? 65 : code < 48 ? code - 1 : code < 58 ? code + 18 : code < 65 ? code - 11 : code < 91 ? code + 11 : code < 97 ? code - 37 : code < 123 ? code + 5 : code - 63;
-    }
-    if ((a += "") != (b += ""))
-      for (; codeB; ) {
-        codeA = getCode(a, posA++);
-        codeB = getCode(b, posB++);
-        if (codeA < 76 && codeB < 76 && codeA > 66 && codeB > 66) {
-          codeA = getCode(a, posA, posA);
-          codeB = getCode(b, posB, posA = i);
-          posB = i;
-        }
-        if (codeA != codeB)
-          return codeA < codeB ? -1 : 1;
-      }
-    return 0;
-  };
-  try {
-    module.exports = naturalCompare;
-  } catch (e) {
-    String.naturalCompare = naturalCompare;
-  }
-});
-export default naturalCompare_1;
+import{c as j}from"./common/_commonjsHelpers-b3efd043.js";var s=j(function(g){/*
+ * @version    1.4.0
+ * @date       2015-10-26
+ * @stability  3 - Stable
+ * @author     Lauri Rooden (https://github.com/litejs/natural-compare-lite)
+ * @license    MIT License
+ */var h=function(i,p){var a,n,t=1,u=0,C=0,A=String.alphabet;function f(m,l,r){if(r){for(a=l;r=f(m,a),r<76&&r>65;)++a;return+m.slice(l-1,a)}return r=A&&A.indexOf(m.charAt(l)),r>-1?r+76:(r=m.charCodeAt(l)||0,r<45||r>127?r:r<46?65:r<48?r-1:r<58?r+18:r<65?r-11:r<91?r+11:r<97?r-37:r<123?r+5:r-63)}if((i+="")!=(p+="")){for(;t;)if(n=f(i,u++),t=f(p,C++),n<76&&t<76&&n>66&&t>66&&(n=f(i,u,u),t=f(p,C,u=a),C=a),n!=t)return n<t?-1:1}return 0};try{g.exports=h}catch(i){String.naturalCompare=h}});export default s;

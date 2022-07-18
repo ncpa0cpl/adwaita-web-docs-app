@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import { App } from "./components/app";
+import { IS_DEV, ROUTER_BASE_URL } from "./env";
 import "./index.css";
 
 const rootElem = document.getElementById("root");
@@ -15,8 +16,7 @@ window.history.replaceState(
 if (rootElem) {
   const root = createRoot(rootElem);
   root.render(
-    // TODO: make the base url specified by env variable
-    <Router basename="adwaita-web-docs-app">
+    <Router basename={IS_DEV ? "" : ROUTER_BASE_URL}>
       <App />
     </Router>
   );

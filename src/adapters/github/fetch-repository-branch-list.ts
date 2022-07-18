@@ -2,6 +2,7 @@ import { Axios } from "../axios-instance";
 import { GH_API_BASE_URL, REPO_NAME, REPO_OWNER } from "./constants";
 
 export type GhApiBranchOrTag = {
+  type: "branch" | "tag";
   label: string;
   name: string;
   commit: {
@@ -36,6 +37,14 @@ export const fetchRepositoryBranchList = async () => {
       (b) => b.name === "master" || b.name === "prerelease-rolling"
     ),
   ];
+
+  for (const tag of tags.data) {
+    tag.type = "tag";
+  }
+
+  for (const branch of branches.data) {
+    branch.type = "branch";
+  }
 
   for (const branchOrTag of branchesAndTags) {
     if (branchOrTag.name === "prerelease-rolling") {

@@ -1,0 +1,1 @@
+import{Axios as t}from"../axios-instance.js";import{GH_API_BASE_URL as n,REPO_NAME as s,REPO_OWNER as a}from"./constants.js";export const fetchBranchInfo=async o=>(await t.get(`/repos/${a}/${s}/branches/${o}`,{baseURL:n})).data;

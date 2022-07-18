@@ -1,2 +1,1 @@
-var global = typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};
-export {global as g};
+var e=typeof e!="undefined"?e:typeof self!="undefined"?self:typeof window!="undefined"?window:{};export{e as g};

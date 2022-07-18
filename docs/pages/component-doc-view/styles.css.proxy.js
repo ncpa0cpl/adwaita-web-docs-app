@@ -1,8 +1,1 @@
-if (typeof document !== "undefined") {
-  const code = ".source-link {\n  margin-left: 15px;\n}";
-  const styleEl = document.createElement("style");
-  const codeEl = document.createTextNode(code);
-  styleEl.type = "text/css";
-  styleEl.appendChild(codeEl);
-  document.head.appendChild(styleEl);
-}
+if(typeof document!="undefined"){const t=".source-link{margin-left:15px}",e=document.createElement("style"),d=document.createTextNode(t);e.type="text/css",e.appendChild(d),document.head.appendChild(e)}

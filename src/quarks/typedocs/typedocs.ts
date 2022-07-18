@@ -24,12 +24,13 @@ export const typeDocs = quark({ components: [] } as TypeDocs, {
 });
 
 githubRepo.subscribe((state) => {
-  if (state.currentCommit) {
-    const typedocCommitFile = state.currentCommit.files.find(
-      (file) => file.filename === "docs/typedocs.json"
-    );
-    if (typedocCommitFile) {
-      typeDocs.setFromRemoteFile(typedocCommitFile);
+  if (state.currentBranch) {
+    const branch = state.branches.find((b) => b.name === state.currentBranch)!;
+
+    if (branch.type === "tag") {
+      typeDocs.setFromGithubTag(branch);
+    } else {
+      typeDocs.setFromGithubBranch(branch.name);
     }
   }
 });

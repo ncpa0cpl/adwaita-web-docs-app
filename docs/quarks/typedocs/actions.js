@@ -1,10 +1,1 @@
-import {fetchFileContent} from "../../adapters/github/fetch-file-content.js";
-export const typeDocsActions = {
-  async setFromRemoteFile(_, remoteFile) {
-    const fileContent = await fetchFileContent(remoteFile);
-    const typedocs = JSON.parse(fileContent);
-    return {
-      components: Object.entries(typedocs.components)
-    };
-  }
-};
+import{fetchBranchInfo as s}from"../../adapters/github/fetch-branch-info.js";import{fetchFromBranchTree as c}from"../../adapters/github/fetch-from-branch tree.js";import{fetchTagInfo as a}from"../../adapters/github/fetch-tag-info.js";export const typeDocsActions={async setFromGithubBranch(r,o){const n=await s(o),t=await c(n.commit.commit.tree.url,["docs","typedocs.json"]);if(t.encoding!=="base64")throw new Error("Unsupported encoding");const e=JSON.parse(atob(t.content));return{components:Object.entries(e.components)}},async setFromGithubTag(r,o){const n=await a(o),t=await c(n.commit.tree.url,["docs","typedocs.json"]);if(t.encoding!=="base64")throw new Error("Unsupported encoding");const e=JSON.parse(atob(t.content));return{components:Object.entries(e.components)}}};

@@ -1,0 +1,1 @@
+import{sortAlphanumeric as o}from"./sort-alphanum.js";export const sortTagAndBranches=(e,t)=>{const r=e.filter(s=>t(s).type==="tag"),n=e.filter(s=>t(s).type==="branch"),a=o(r,s=>t(s).name).reverse(),c=o(n,s=>t(s).name);return[...a,...c]};
