@@ -18,7 +18,7 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
   const isReq = isRequired(parent, name);
 
   const funcArgs = sortAlphanumeric(
-    Object.entries(schema?.properties?.arguments ?? {}),
+    Object.entries(schema?.properties?.arguments?.properties ?? {}),
     ([key, _]: [string, JSONSchema4]) => key
   );
   const returns = schema.properties?.returns;
@@ -30,7 +30,11 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
       const [argName, argSchema] = args[index]!;
       const isLast = index === args.length - 1;
 
-      returns.push(<span>{`${argSchema.title ?? `arg_${argName}`}: `}</span>);
+      returns.push(
+        <span key={index}>{`${
+          argName.match(/[^0-9]+/) ? argName : `arg_${argName}`
+        }: `}</span>
+      );
       if (
         typeof argSchema.type === "string" &&
         [
@@ -43,19 +47,18 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
           "void",
         ].includes(argSchema.type)
       ) {
-        returns.push(<span>{argSchema.type}</span>);
+        returns.push(<span key={index}>{argSchema.type}</span>);
       } else {
         returns.push(
           <Popover
+            key={index}
             content={
-              <Box
-                padded
-                border
-                className="schema-viewer-container popover-type-schema-table background-medium"
-              >
+              <Box className="json-schema-viewer schema-viewer-container">
                 <table>
                   <tbody>
-                    <SchemaView schema={argSchema} />
+                    <tr>
+                      <SchemaView schema={argSchema} />
+                    </tr>
                   </tbody>
                 </table>
               </Box>
@@ -67,7 +70,7 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
       }
 
       if (!isLast) {
-        returns.push(<span>{", "}</span>);
+        returns.push(<span key={"separator"}>{", "}</span>);
       }
     }
 
@@ -95,14 +98,12 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
     return (
       <Popover
         content={
-          <Box
-            padded
-            border
-            className="schema-viewer-container popover-type-schema-table background-medium"
-          >
+          <Box className="json-schema-viewer schema-viewer-container">
             <table>
               <tbody>
-                <SchemaView schema={ret} />
+                <tr>
+                  <SchemaView schema={ret} />
+                </tr>
               </tbody>
             </table>
           </Box>
@@ -116,6 +117,9 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
   return (
     <>
       {name && <PropertyNameLabel name={name} />}
+      <td>
+        <Description description={schema.description} />
+      </td>
       <td>
         <span className="function-type">
           <>
@@ -131,9 +135,6 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
             |<TypeNameLabel name="undefined" />
           </>
         )}
-      </td>
-      <td>
-        <Description description={schema.description} />
       </td>
     </>
   );

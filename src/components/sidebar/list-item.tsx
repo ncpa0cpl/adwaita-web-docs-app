@@ -12,11 +12,11 @@ export const ListItem = React.memo(
   ({
     route,
     search,
-    currentBranch,
+    currentItem,
   }: {
     route: string;
     search: string;
-    currentBranch: string;
+    currentItem: string;
   }) => {
     const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export const ListItem = React.memo(
         key={route}
         className="align component-link"
         activatable
-        selected={currentBranch === route}
+        selected={currentItem === route}
         onClick={() => navigate(getLinkTo(route))}
       >
         <Label>

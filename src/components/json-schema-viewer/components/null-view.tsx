@@ -17,15 +17,15 @@ export const NullView = ({ schema, parent, name }: NullViewProps) => {
     <>
       {name && <PropertyNameLabel name={name} />}
       <td>
+        <Description description={schema.description} />
+      </td>
+      <td>
         <TypeNameLabel name="null" />
         {!isReq && (
           <>
             |<TypeNameLabel name="undefined" />
           </>
         )}
-      </td>
-      <td>
-        <Description description={schema.description} />
       </td>
     </>
   );

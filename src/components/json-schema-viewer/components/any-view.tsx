@@ -17,15 +17,15 @@ export const AnyView = ({ schema, parent, name }: AnyViewProps) => {
     <>
       {name && <PropertyNameLabel name={name} />}
       <td>
+        <Description description={schema.description} />
+      </td>
+      <td>
         <TypeNameLabel name="any" />
         {!isReq && (
           <>
             |<TypeNameLabel name="undefined" />
           </>
         )}
-      </td>
-      <td>
-        <Description description={schema.description} />
       </td>
     </>
   );

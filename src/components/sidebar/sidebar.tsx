@@ -2,8 +2,7 @@ import { Box, Icon, Input, Label, List } from "adwaita-web";
 import * as fzy from "fzy.js";
 import { sortBy } from "rambda";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { githubRepo } from "../../quarks/github-repo/github-repo";
+import { useMatch, useNavigate } from "react-router-dom";
 import { typeDocs } from "../../quarks/typedocs/typedocs";
 import { VersionSelector } from "../version-selector/version-selector";
 import { ListItem } from "./list-item";
@@ -14,10 +13,10 @@ const getLinkTo = (componentName: string) => {
 };
 
 export function Sidebar() {
+  const { params } = useMatch("/:componentName") ?? {};
   const navigate = useNavigate();
   const [searchValue, setSearch] = useState("");
   const search = searchValue.trim();
-  const repository = githubRepo.use();
   const componentNames = typeDocs.useComponentNames();
 
   const filteredRoutes = React.useMemo(
@@ -62,7 +61,7 @@ export function Sidebar() {
             key={route}
             route={route}
             search={search}
-            currentBranch={repository.value.currentBranch}
+            currentItem={params?.componentName ?? ""}
           />
         ))}
         {filteredRoutes.length === 0 && (

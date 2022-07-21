@@ -12,13 +12,61 @@
         border-radius: 5px;
     }
 
+    .multiline-cell {
+        display: block;
+    }
+
+    .description {
+        white-space: pre-wrap;
+        max-width: 20em;
+        background-color: unset;
+        border: unset;
+        font-family: inherit;
+        font-size: 1em;
+    }
+
+    table.object-type-table,
+    table.array-type-table {
+        th {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 8px;
+
+            .type-name {
+                font-weight: normal;
+                padding-left: 0 !important;
+            }
+        }
+    }
+
+    table.object-type-table {
+        & > tbody {
+            & > tr {
+                td:first-child {
+                    padding-left: 20px !important;
+                }
+            }
+        }
+    }
+
     table {
         width: 100%;
         border-collapse: collapse;
 
         table {
             table {
-                margin-left: 15px;
+                margin-right: 25px;
+                margin-left: 10px;
+                border-left: 1px solid #a7a0a0;
+            }
+
+            tbody {
+                & > tr {
+                    td:first-child {
+                        padding-left: 10px;
+                    }
+                }
             }
         }
 
@@ -28,6 +76,7 @@
             }
 
             td {
+                vertical-align: text-top;
                 padding: 5px;
             }
 
@@ -56,11 +105,25 @@
                 color: #030264;
                 cursor: pointer;
             }
+
+            .number-type-literal {
+                color: #a89005;
+            }
+
+            .boolean-type-literal {
+                color: #2daa2d;
+            }
+
+            .string-type-literal {
+                color: #fe8735;
+            }
         }
     }
 }
 
-.popover-type-schema-table {
-    margin-left: 10px;
-    margin-right: 10px;
+.Popover__content {
+    .schema-viewer-container {
+        margin-left: 7px;
+        margin-right: 7px;
+    }
 }

@@ -1,4 +1,4 @@
-if(typeof document!="undefined"){const n=`html, body, #root {
+if(typeof document!="undefined"){const e=`html, body, #root {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -9,4 +9,8 @@ if(typeof document!="undefined"){const n=`html, body, #root {
   width: 100%;
   height: 100%;
 }
-`,e=document.createElement("style"),t=document.createTextNode(n);e.type="text/css",e.appendChild(t),document.head.appendChild(e)}
+
+.Popover__content {
+  min-width: 40px;
+  min-height: 7px;
+}`,n=document.createElement("style"),t=document.createTextNode(e);n.type="text/css",n.appendChild(t),document.head.appendChild(n)}

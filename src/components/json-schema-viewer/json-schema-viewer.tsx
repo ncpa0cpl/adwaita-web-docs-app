@@ -39,7 +39,7 @@ export const JsonSchemaViewer = ({ schema }: JsonSchemaViewerProps) => {
           <table>
             <tbody>
               <tr>
-                <SchemaView schema={schema} />
+                <SchemaView schema={schema} isRoot={true} />
               </tr>
             </tbody>
           </table>

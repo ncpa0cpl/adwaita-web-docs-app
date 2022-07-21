@@ -63,45 +63,62 @@ export const ArrayView = ({ schema, parent, name }: ArrayViewProps) => {
     <>
       {name && <PropertyNameLabel name={name} />}
       {isComplex ? (
-        <td colSpan={2}>
-          <table>
-            <tbody>
-              <tr>
-                <td colSpan={3}>
-                  <Description description={schema.description} />
-                </td>
-              </tr>
-              <tr className="no-border">
-                <td colSpan={3}>
-                  <Label info className="complex-array-item-label">
-                    Array Of:
-                  </Label>
-                </td>
-              </tr>
-              {Array.isArray(schema.items) ? (
-                <>
-                  {schema.items.map((item, index) => (
-                    <tr key={index}>
-                      <SchemaView
-                        name={`${index}`}
-                        parent={schema}
-                        schema={item}
-                      />
+        <>
+          <td>
+            <Description description={schema.description} />
+          </td>
+          <td>
+            <table>
+              <thead>
+                <tr>
+                  <th rowSpan={3}>
+                    {parent && !isReq && (
+                      <span>
+                        <TypeNameLabel name="undefined" />|
+                      </span>
+                    )}
+                    <Label className="complex-array-item-label">
+                      {(schema.title ? `${schema.title} ` : "") + "Array<"}
+                    </Label>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {Array.isArray(schema.items) ? (
+                  <>
+                    {schema.items.map((item, index) => (
+                      <tr key={index}>
+                        <SchemaView
+                          name={`${index}`}
+                          parent={schema}
+                          schema={item}
+                        />
+                      </tr>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    <tr>
+                      <SchemaView schema={schema.items!} parent={schema} />
                     </tr>
-                  ))}
-                </>
-              ) : (
-                <>
-                  <tr>
-                    <SchemaView schema={schema.items!} parent={schema} />
-                  </tr>
-                </>
-              )}
-            </tbody>
-          </table>
-        </td>
+                  </>
+                )}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colSpan={3}>
+                    <Label>{">"}</Label>
+                  </th>
+                </tr>
+              </tfoot>
+            </table>
+          </td>
+        </>
       ) : (
         <>
+          <td>
+            <Description description={schema.description} />
+          </td>
           <td>
             {!isComplex && (
               <>
@@ -113,9 +130,6 @@ export const ArrayView = ({ schema, parent, name }: ArrayViewProps) => {
                 )}
               </>
             )}
-          </td>
-          <td>
-            <Description description={schema.description} />
           </td>
         </>
       )}
