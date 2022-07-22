@@ -4,11 +4,13 @@ import { AllOfView } from "./all-of-view";
 import { AnyView } from "./any-view";
 import { ArrayView } from "./array-view";
 import { BooleanView } from "./boolean-view";
+import { Description } from "./description";
 import { FunctionView } from "./function-view";
 import { NullView } from "./null-view";
 import { NumberView } from "./number-view";
 import { ObjectView } from "./object-view";
 import { OneOfView } from "./one-of-view";
+import { PropertyNameLabel } from "./property-name-label";
 import { StringView } from "./string-view";
 import { TypeNameLabel } from "./type-name-label";
 
@@ -65,9 +67,26 @@ export const SchemaView = ({
   if (schema.title) {
     return (
       <>
-        <td></td>
+        {name && <PropertyNameLabel name={name} />}
+        <td>
+          <Description description={schema.description} />
+        </td>
         <td>
           <TypeNameLabel name={schema.title} />
+        </td>
+      </>
+    );
+  }
+
+  if (schema.metadata && schema.metadata.title) {
+    return (
+      <>
+        {name && <PropertyNameLabel name={name} />}
+        <td>
+          <Description description={schema.metadata.description} />
+        </td>
+        <td>
+          <TypeNameLabel name={schema.metadata.title} />
         </td>
       </>
     );

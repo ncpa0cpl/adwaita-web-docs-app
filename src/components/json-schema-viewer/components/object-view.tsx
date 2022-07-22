@@ -33,6 +33,11 @@ export const ObjectView = ({
       </td>
       <td>
         <table className="object-type-table">
+          <colgroup>
+            <col className="property-name-column" />
+            <col className="description-column" />
+            <col className="type-column" />
+          </colgroup>
           <thead>
             {!isRoot && (
               <tr>

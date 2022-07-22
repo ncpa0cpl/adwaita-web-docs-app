@@ -2,7 +2,8 @@ import { Box, Icon, Input, Label, List } from "adwaita-web";
 import * as fzy from "fzy.js";
 import { sortBy } from "rambda";
 import React, { useState } from "react";
-import { useMatch, useNavigate } from "react-router-dom";
+import { useMatch } from "react-router-dom";
+import { useNav } from "../../hooks/use-nav";
 import { typeDocs } from "../../quarks/typedocs/typedocs";
 import { VersionSelector } from "../version-selector/version-selector";
 import { ListItem } from "./list-item";
@@ -14,7 +15,7 @@ const getLinkTo = (componentName: string) => {
 
 export function Sidebar() {
   const { params } = useMatch("/:componentName") ?? {};
-  const navigate = useNavigate();
+  const navigate = useNav();
   const [searchValue, setSearch] = useState("");
   const search = searchValue.trim();
   const componentNames = typeDocs.useComponentNames();
@@ -34,7 +35,7 @@ export function Sidebar() {
     ev.preventDefault();
     const selectedRoute = filteredRoutes[0];
     if (!selectedRoute) return;
-    navigate(getLinkTo(selectedRoute));
+    navigate(getLinkTo(selectedRoute), { preserveQuery: true });
     setTimeout(() => document.getElementById("main")?.focus(), 200);
     setSearch("");
   };

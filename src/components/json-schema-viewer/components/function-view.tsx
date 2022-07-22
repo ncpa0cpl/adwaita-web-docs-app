@@ -31,7 +31,7 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
       const isLast = index === args.length - 1;
 
       returns.push(
-        <span key={index}>{`${
+        <span key={`arg-name-${index}`}>{`${
           argName.match(/[^0-9]+/) ? argName : `arg_${argName}`
         }: `}</span>
       );
@@ -47,11 +47,11 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
           "void",
         ].includes(argSchema.type)
       ) {
-        returns.push(<span key={index}>{argSchema.type}</span>);
+        returns.push(<span key={`arg-type-${index}`}>{argSchema.type}</span>);
       } else {
         returns.push(
           <Popover
-            key={index}
+            key={`arg-popover-${index}`}
             content={
               <Box className="json-schema-viewer schema-viewer-container">
                 <table>
@@ -70,7 +70,7 @@ export const FunctionView = ({ schema, parent, name }: FunctionViewProps) => {
       }
 
       if (!isLast) {
-        returns.push(<span key={"separator"}>{", "}</span>);
+        returns.push(<span key={`separator-${index}`}>{", "}</span>);
       }
     }
 

@@ -1,8 +1,8 @@
 import { Box, Icon, Text } from "adwaita-web";
 import React from "react";
-import { Link } from "react-router-dom";
 import { REPO_NAME, REPO_OWNER } from "../../adapters/github/constants";
 import { Content } from "../../components/content/content";
+import { Link } from "../../components/link/link";
 import { typeDocs } from "../../quarks/typedocs/typedocs";
 
 export const HomePage = () => {
@@ -12,7 +12,7 @@ export const HomePage = () => {
     if (componentNames.some((name) => name === componentName)) {
       return (
         <li>
-          <Link to={`/${componentName}`} className="link">
+          <Link to={`/${componentName}`} className="link" preserveQuery>
             <Text>{componentName}</Text>
           </Link>
         </li>

@@ -18,7 +18,7 @@
 
     .description {
         white-space: pre-wrap;
-        max-width: 20em;
+        min-width: 26em;
         background-color: unset;
         border: unset;
         font-family: inherit;
@@ -72,7 +72,7 @@
 
         tr {
             &:not(:last-child):not(.no-border) {
-                border-bottom: 1px solid #e0e0e0;
+                border-bottom: 1px solid #c9c9c9;
             }
 
             td {
@@ -82,6 +82,7 @@
 
             .property-name-cell {
                 vertical-align: text-top;
+                padding-right: 10px;
             }
 
             .property-name {
@@ -117,6 +118,22 @@
             .string-type-literal {
                 color: #fe8735;
             }
+        }
+
+        .Label {
+            height: unset !important;
+            text-align: left;
+        }
+
+        .property-name-column {
+            min-width: 6em;
+        }
+
+        .description-column {
+        }
+
+        .type-column {
+            width: 99%;
         }
     }
 }

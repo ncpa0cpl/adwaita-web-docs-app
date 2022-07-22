@@ -75,11 +75,25 @@ export const OneOfView = ({ schema, name, parent }: OneOfViewProps) => {
       <td>
         <Label>One of:</Label>
         <table>
-          {schema.oneOf!.map((unionMember, i) => (
-            <tr key={i}>
-              <SchemaView schema={unionMember} parent={schema} />
-            </tr>
-          ))}
+          <colgroup>
+            <col className="description-column" />
+            <col className="type-column" />
+          </colgroup>
+          <tbody>
+            {!isReq && (
+              <tr>
+                <td></td>
+                <td>
+                  <TypeNameLabel name="undefined" />
+                </td>
+              </tr>
+            )}
+            {schema.oneOf!.map((unionMember, i) => (
+              <tr key={i}>
+                <SchemaView schema={unionMember} />
+              </tr>
+            ))}
+          </tbody>
         </table>
       </td>
     </>

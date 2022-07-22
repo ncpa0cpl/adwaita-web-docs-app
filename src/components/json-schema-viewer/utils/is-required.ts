@@ -4,10 +4,10 @@ export const isRequired = (
   schema?: JSONSchema4,
   property?: string
 ): boolean => {
+  if (!schema || !property) return true;
+
   return !!(
-    schema &&
-    property &&
-    (schema.required === true ||
-      (Array.isArray(schema.required) && schema.required?.includes(property)))
+    schema.required === true ||
+    (Array.isArray(schema.required) && schema.required?.includes(property))
   );
 };

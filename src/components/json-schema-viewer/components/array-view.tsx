@@ -21,14 +21,16 @@ const containsComplexItemTypes = (schema: JSONSchema4) => {
           item.type === "object" ||
           item.type === "array" ||
           item.allOf ||
-          item.oneOf
+          item.oneOf ||
+          (!item.type && !item.title && item.metadata)
       );
     }
     return (
       schema.items.type === "object" ||
       schema.items.type === "array" ||
       schema.items.allOf ||
-      schema.items.oneOf
+      schema.items.oneOf ||
+      (!schema.items.type && !schema.items.title && schema.items.metadata)
     );
   }
   return false;
@@ -69,9 +71,13 @@ export const ArrayView = ({ schema, parent, name }: ArrayViewProps) => {
           </td>
           <td>
             <table>
+              <colgroup>
+                <col className="description-column" />
+                <col className="type-column" />
+              </colgroup>
               <thead>
                 <tr>
-                  <th rowSpan={3}>
+                  <th rowSpan={2}>
                     {parent && !isReq && (
                       <span>
                         <TypeNameLabel name="undefined" />|
@@ -88,25 +94,21 @@ export const ArrayView = ({ schema, parent, name }: ArrayViewProps) => {
                   <>
                     {schema.items.map((item, index) => (
                       <tr key={index}>
-                        <SchemaView
-                          name={`${index}`}
-                          parent={schema}
-                          schema={item}
-                        />
+                        <SchemaView schema={item} />
                       </tr>
                     ))}
                   </>
                 ) : (
                   <>
                     <tr>
-                      <SchemaView schema={schema.items!} parent={schema} />
+                      <SchemaView schema={schema.items!} />
                     </tr>
                   </>
                 )}
               </tbody>
               <tfoot>
                 <tr>
-                  <th colSpan={3}>
+                  <th colSpan={2}>
                     <Label>{">"}</Label>
                   </th>
                 </tr>

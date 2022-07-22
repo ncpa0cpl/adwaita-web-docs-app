@@ -75,6 +75,10 @@ export const AllOfView = ({ schema, name, parent }: AllOfViewProps) => {
       <td>
         <Label>All of:</Label>
         <table>
+          <colgroup>
+            <col className="description-column" />
+            <col className="type-column" />
+          </colgroup>
           <tbody>
             {schema.allOf!.map((unionMember, i) => (
               <tr key={i}>
