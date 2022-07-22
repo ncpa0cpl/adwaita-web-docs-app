@@ -1,4 +1,4 @@
-import { Box, Label } from "adwaita-web";
+import { Box, Label, Text } from "adwaita-web";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { REPO_NAME, REPO_OWNER } from "../../adapters/github/constants";
@@ -39,15 +39,20 @@ export const ComponentDocViewPage = () => {
       ) : (
         <></>
       )}
-
-      <Box vertical>
-        {component && component.propsSchema ? <h4>Props</h4> : <></>}
-        {!component ? (
-          <></>
-        ) : (
-          <JsonSchemaViewer schema={component.propsSchema} />
+      {component && component.description && (
+        <Box>
+          <h2>Description</h2>
+          <Text>{component.description}</Text>
+        </Box>
+      )}
+      {component &&
+        component.propsSchema &&
+        Object.keys(component.propsSchema.properties ?? {}).length && (
+          <Box vertical>
+            <h2>Props</h2>
+            <JsonSchemaViewer schema={component.propsSchema} />
+          </Box>
         )}
-      </Box>
     </Content>
   );
 };
