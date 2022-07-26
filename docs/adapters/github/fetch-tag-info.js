@@ -1,1 +1,5 @@
-import{Axios as t}from"../axios-instance.js";export const fetchTagInfo=async o=>(await t.get(o.commit.url)).data;
+import {Axios} from "../axios-instance.js";
+export const fetchTagInfo = async (tag) => {
+  const commitInfo = await Axios.get(tag.commit.url);
+  return commitInfo.data;
+};

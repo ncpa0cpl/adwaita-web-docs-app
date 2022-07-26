@@ -1,1 +1,5 @@
-export const isRequired=(r,e)=>{var u;return!r||!e?!0:!!(r.required===!0||Array.isArray(r.required)&&((u=r.required)==null?void 0:u.includes(e)))};
+export const isRequired = (schema, property) => {
+  if (!schema || !property)
+    return true;
+  return !!(schema.required === true || Array.isArray(schema.required) && schema.required?.includes(property));
+};

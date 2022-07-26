@@ -1,1 +1,23 @@
-import o from"../_snowpack/pkg/react-highlight.js";import i from"../helpers/indent.js";import"../styles/highlight.css.proxy.js";const l={root:{"& pre":{padding:"1em"},"& code":{border:"none",padding:0}}};function s({classes:e,text:t,children:r}){return React.createElement("div",{className:e.root},React.createElement(o,{className:"javascript",children:i(t||r)}))}export default s;
+import Highlight from "../_snowpack/pkg/react-highlight.v0.14.0.js";
+import indent from "../helpers/indent.js";
+import "../styles/highlight.css.proxy.js";
+const styles = {
+  root: {
+    "& pre": {
+      padding: "1em"
+    },
+    "& code": {
+      border: "none",
+      padding: 0
+    }
+  }
+};
+function CodeExample({classes, text, children}) {
+  return /* @__PURE__ */ React.createElement("div", {
+    className: classes.root
+  }, /* @__PURE__ */ React.createElement(Highlight, {
+    className: "javascript",
+    children: indent(text || children)
+  }));
+}
+export default CodeExample;

@@ -1,1 +1,7 @@
-.source-link{margin-left:15px}
+.source-link {
+  margin-left: 15px;
+}
+
+.schema-viewer-container {
+  margin-bottom: 30px;
+}

@@ -6,8 +6,10 @@
     "@types/jest": "^28.1.6",
     "@types/json-schema": "^7.0.11",
     "@types/natural-compare": "^1.4.1",
+    "@types/path-browserify": "^1.0.0",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "eslint": "^8.20.0",
@@ -33,6 +35,7 @@
     "test:tsc": "tsc --noEmit",
     "build": "snowpack build --polyfill-node && touch ./docs/.nojekyll",
     "build:dev": "MODE=development snowpack build --polyfill-node && touch ./docs/.nojekyll",
+    "watch": "MODE=development snowpack build --polyfill-node --watch",
     "start": "snowpack dev --polyfill-node"
   },
   "keywords": [],
@@ -46,18 +49,24 @@
     "email": ""
   },
   "dependencies": {
-    "adwaita-web": "0.1.1-canary-93ba06749a654649485b09698380bcc899f61593.0",
+    "@codesandbox/sandpack-react": "^1.3.1",
+    "adwaita-web": "0.1.1-canary-83f07fb4b5a2324370770d2358c58f1bf3cb18f5.0",
     "axios": "^0.27.2",
     "axios-cache-adapter": "^2.7.3",
     "clsx": "^1.2.1",
     "fzy.js": "^0.4.1",
     "localforage": "^1.10.0",
     "natural-compare": "^1.4.0",
+    "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-highlight": "^0.14.0",
     "react-json-view": "^1.21.3",
     "react-quarks": "^2.0.2",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "unified": "^10.1.2",
+    "uuid": "^8.3.2"
   }
 }

@@ -1,4 +1,4 @@
-import { Label, List } from "adwaita-web";
+import { Label, ListItem as AWListItem } from "adwaita-web";
 import * as fzy from "fzy.js";
 import React from "react";
 import { useNav } from "../../hooks/use-nav";
@@ -21,7 +21,7 @@ export const ListItem = React.memo(
     const navigate = useNav();
 
     return (
-      <List.Item
+      <AWListItem
         as={"span"}
         key={route}
         className="align component-link"
@@ -34,7 +34,7 @@ export const ListItem = React.memo(
             ? route
             : highlight("mark", route, fzy.positions(search, route))}
         </Label>
-      </List.Item>
+      </AWListItem>
     );
   }
 );

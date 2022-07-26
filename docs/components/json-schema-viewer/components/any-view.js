@@ -1,1 +1,17 @@
-import e from"../../../_snowpack/pkg/react.js";import{isRequired as a}from"../utils/is-required.js";import{Description as i}from"./description.js";import{PropertyNameLabel as o}from"./property-name-label.js";import{TypeNameLabel as r}from"./type-name-label.js";export const AnyView=({schema:n,parent:m,name:t})=>{const l=a(m,t);return e.createElement(e.Fragment,null,t&&e.createElement(o,{name:t}),e.createElement("td",null,e.createElement(i,{description:n.description})),e.createElement("td",null,e.createElement(r,{name:"any"}),!l&&e.createElement(e.Fragment,null,"|",e.createElement(r,{name:"undefined"}))))};
+import React from "../../../_snowpack/pkg/react.v18.2.0.js";
+import {isRequired} from "../utils/is-required.js";
+import {Description} from "./description.js";
+import {PropertyNameLabel} from "./property-name-label.js";
+import {TypeNameLabel} from "./type-name-label.js";
+export const AnyView = ({schema, parent, name}) => {
+  const isReq = isRequired(parent, name);
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, name && /* @__PURE__ */ React.createElement(PropertyNameLabel, {
+    name
+  }), /* @__PURE__ */ React.createElement("td", null, /* @__PURE__ */ React.createElement(Description, {
+    description: schema.description
+  })), /* @__PURE__ */ React.createElement("td", null, /* @__PURE__ */ React.createElement(TypeNameLabel, {
+    name: "any"
+  }), !isReq && /* @__PURE__ */ React.createElement(React.Fragment, null, "|", /* @__PURE__ */ React.createElement(TypeNameLabel, {
+    name: "undefined"
+  }))));
+};

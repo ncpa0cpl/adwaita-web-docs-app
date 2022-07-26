@@ -1,3 +1,25 @@
-export default function o(n){const t=n.split(`
-`);for(;t.length&&l(t[0]);)t.shift();for(;t.length&&l(t[t.length-1]);)t.pop();let i=Infinity;t.forEach(e=>{const c=e.match(/^\s*/);if(c){const s=c[0];if(l(e))return;s&&s.length<i&&(i=s.length)}});const h=" ".repeat(i);return t.map(e=>e.replace(h,"")).join(`
-`)}function l(n){return/^\s*$/.test(n)}
+export default function indent(code) {
+  const lines = code.split("\n");
+  while (lines.length && isWhitespace(lines[0])) {
+    lines.shift();
+  }
+  while (lines.length && isWhitespace(lines[lines.length - 1])) {
+    lines.pop();
+  }
+  let smallestIndent = Infinity;
+  lines.forEach((l) => {
+    const match = l.match(/^\s*/);
+    if (match) {
+      const spaces = match[0];
+      if (isWhitespace(l))
+        return;
+      if (spaces && spaces.length < smallestIndent)
+        smallestIndent = spaces.length;
+    }
+  });
+  const remove = " ".repeat(smallestIndent);
+  return lines.map((l) => l.replace(remove, "")).join("\n");
+}
+function isWhitespace(l) {
+  return /^\s*$/.test(l);
+}

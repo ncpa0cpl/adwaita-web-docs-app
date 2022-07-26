@@ -1,1 +1,108 @@
-import e from"../../../_snowpack/pkg/react.js";import{AllOfView as a}from"./all-of-view.js";import{AnyView as u}from"./any-view.js";import{ArrayView as c}from"./array-view.js";import{BooleanView as f}from"./boolean-view.js";import{Description as l}from"./description.js";import{FunctionView as w}from"./function-view.js";import{NullView as E}from"./null-view.js";import{NumberView as p}from"./number-view.js";import{ObjectView as j}from"./object-view.js";import{OneOfView as y}from"./one-of-view.js";import{PropertyNameLabel as n}from"./property-name-label.js";import{StringView as d}from"./string-view.js";import{TypeNameLabel as o}from"./type-name-label.js";export const SchemaView=({schema:t,name:r,parent:i,isRoot:m})=>{if(t.type&&!Array.isArray(t.type))switch(t.type){case"object":return t.title==="Function"?e.createElement(w,{schema:t,name:r,parent:i}):e.createElement(j,{schema:t,name:r,parent:i,isRoot:m});case"array":return e.createElement(c,{schema:t,name:r,parent:i});case"string":return e.createElement(d,{schema:t,name:r,parent:i});case"number":case"integer":return e.createElement(p,{schema:t,name:r,parent:i});case"boolean":return e.createElement(f,{schema:t,name:r,parent:i});case"null":return e.createElement(E,{schema:t,name:r,parent:i});case"any":return e.createElement(u,{schema:t,name:r,parent:i})}return t.oneOf?e.createElement(y,{schema:t,name:r,parent:i}):t.allOf?e.createElement(a,{schema:t,name:r,parent:i}):t.title?e.createElement(e.Fragment,null,r&&e.createElement(n,{name:r}),e.createElement("td",null,e.createElement(l,{description:t.description})),e.createElement("td",null,e.createElement(o,{name:t.title}))):t.metadata&&t.metadata.title?e.createElement(e.Fragment,null,r&&e.createElement(n,{name:r}),e.createElement("td",null,e.createElement(l,{description:t.metadata.description})),e.createElement("td",null,e.createElement(o,{name:t.metadata.title}))):e.createElement(e.Fragment,null)};
+import React from "../../../_snowpack/pkg/react.v18.2.0.js";
+import {AllOfView} from "./all-of-view.js";
+import {AnyView} from "./any-view.js";
+import {ArrayView} from "./array-view.js";
+import {BooleanView} from "./boolean-view.js";
+import {Description} from "./description.js";
+import {FunctionView} from "./function-view.js";
+import {NullView} from "./null-view.js";
+import {NumberView} from "./number-view.js";
+import {ObjectView} from "./object-view.js";
+import {OneOfView} from "./one-of-view.js";
+import {PropertyNameLabel} from "./property-name-label.js";
+import {StringView} from "./string-view.js";
+import {TypeNameLabel} from "./type-name-label.js";
+export const SchemaView = ({
+  schema,
+  name,
+  parent,
+  isRoot
+}) => {
+  if (schema.type && !Array.isArray(schema.type)) {
+    switch (schema.type) {
+      case "object":
+        if (schema.title === "Function")
+          return /* @__PURE__ */ React.createElement(FunctionView, {
+            schema,
+            name,
+            parent
+          });
+        return /* @__PURE__ */ React.createElement(ObjectView, {
+          schema,
+          name,
+          parent,
+          isRoot
+        });
+      case "array":
+        return /* @__PURE__ */ React.createElement(ArrayView, {
+          schema,
+          name,
+          parent
+        });
+      case "string":
+        return /* @__PURE__ */ React.createElement(StringView, {
+          schema,
+          name,
+          parent
+        });
+      case "number":
+      case "integer":
+        return /* @__PURE__ */ React.createElement(NumberView, {
+          schema,
+          name,
+          parent
+        });
+      case "boolean":
+        return /* @__PURE__ */ React.createElement(BooleanView, {
+          schema,
+          name,
+          parent
+        });
+      case "null":
+        return /* @__PURE__ */ React.createElement(NullView, {
+          schema,
+          name,
+          parent
+        });
+      case "any":
+        return /* @__PURE__ */ React.createElement(AnyView, {
+          schema,
+          name,
+          parent
+        });
+    }
+  }
+  if (schema.oneOf) {
+    return /* @__PURE__ */ React.createElement(OneOfView, {
+      schema,
+      name,
+      parent
+    });
+  }
+  if (schema.allOf) {
+    return /* @__PURE__ */ React.createElement(AllOfView, {
+      schema,
+      name,
+      parent
+    });
+  }
+  if (schema.title) {
+    return /* @__PURE__ */ React.createElement(React.Fragment, null, name && /* @__PURE__ */ React.createElement(PropertyNameLabel, {
+      name
+    }), /* @__PURE__ */ React.createElement("td", null, /* @__PURE__ */ React.createElement(Description, {
+      description: schema.description
+    })), /* @__PURE__ */ React.createElement("td", null, /* @__PURE__ */ React.createElement(TypeNameLabel, {
+      name: schema.title
+    })));
+  }
+  if (schema.metadata && schema.metadata.title) {
+    return /* @__PURE__ */ React.createElement(React.Fragment, null, name && /* @__PURE__ */ React.createElement(PropertyNameLabel, {
+      name
+    }), /* @__PURE__ */ React.createElement("td", null, /* @__PURE__ */ React.createElement(Description, {
+      description: schema.metadata.description
+    })), /* @__PURE__ */ React.createElement("td", null, /* @__PURE__ */ React.createElement(TypeNameLabel, {
+      name: schema.metadata.title
+    })));
+  }
+  return /* @__PURE__ */ React.createElement(React.Fragment, null);
+};

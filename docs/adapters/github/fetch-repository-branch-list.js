@@ -1,1 +1,32 @@
-import{Axios as t}from"../axios-instance.js";import{GH_API_BASE_URL as o,REPO_NAME as n,REPO_OWNER as c}from"./constants.js";export const fetchRepositoryBranchList=async()=>{const i=t.get(`/repos/${c}/${n}/branches`,{baseURL:o}),l=t.get(`/repos/${c}/${n}/tags`,{baseURL:o}),[e,s]=await Promise.all([i,l]),r=[...s.data,...e.data.filter(a=>a.name==="master"||a.name==="prerelease-rolling")];for(const a of s.data)a.type="tag";for(const a of e.data)a.type="branch";for(const a of r)a.name==="prerelease-rolling"?a.label="canary":a.label=a.name;return r};
+import {Axios} from "../axios-instance.js";
+import {GH_API_BASE_URL, REPO_NAME, REPO_OWNER} from "./constants.js";
+export const fetchRepositoryBranchList = async () => {
+  const branchesPromise = Axios.get(`/repos/${REPO_OWNER}/${REPO_NAME}/branches`, {
+    baseURL: GH_API_BASE_URL
+  });
+  const tagsPromise = Axios.get(`/repos/${REPO_OWNER}/${REPO_NAME}/tags`, {
+    baseURL: GH_API_BASE_URL
+  });
+  const [branches, tags] = await Promise.all([
+    branchesPromise,
+    tagsPromise
+  ]);
+  const branchesAndTags = [
+    ...tags.data,
+    ...branches.data.filter((b) => b.name === "master" || b.name === "prerelease-rolling")
+  ];
+  for (const tag of tags.data) {
+    tag.type = "tag";
+  }
+  for (const branch of branches.data) {
+    branch.type = "branch";
+  }
+  for (const branchOrTag of branchesAndTags) {
+    if (branchOrTag.name === "prerelease-rolling") {
+      branchOrTag.label = "canary";
+    } else {
+      branchOrTag.label = branchOrTag.name;
+    }
+  }
+  return branchesAndTags;
+};

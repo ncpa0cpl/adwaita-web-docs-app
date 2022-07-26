@@ -1,1 +1,38 @@
-import{Dropdown as p}from"../../_snowpack/pkg/adwaita-web.js";import a from"../../_snowpack/pkg/react.js";import{useSearchParams as h}from"../../_snowpack/pkg/react-router-dom.js";import{githubRepo as l}from"../../quarks/github-repo/github-repo.js";export const VersionSelector=()=>{const[o,s]=h(),r=l.use(),[u,t]=a.useState(r.value.currentBranch),n=e=>{if(e){const c=o.get("version");s({version:e}),t(e),l.selectBranch(e).catch(()=>{s({version:c!=null?c:""}),t(u)})}};return a.useEffect(()=>{t(r.value.currentBranch)},[r.value.currentBranch]),a.useEffect(()=>{const e=o.get("version");e&&r.value.branches.length>0&&n(e)},[r.value.branches]),a.createElement(p,{options:r.value.branches.map(e=>({label:e.label,value:e.name})),value:r.value.currentBranch,onChange:n,allowClear:!1})};
+import {Dropdown} from "../../_snowpack/pkg/adwaita-web.v0.1.1-canary-83f07fb4b5a2324370770d2358c58f1bf3cb18f5.0.js";
+import React from "../../_snowpack/pkg/react.v18.2.0.js";
+import {useSearchParams} from "../../_snowpack/pkg/react-router-dom.v6.3.0.js";
+import {githubRepo} from "../../quarks/github-repo/github-repo.js";
+export const VersionSelector = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const repo = githubRepo.use();
+  const [selectedBranch, setSelectedBranch] = React.useState(repo.value.currentBranch);
+  const onBranchSelect = (branch) => {
+    if (branch) {
+      const prevParamVersion = searchParams.get("version");
+      setSearchParams({version: branch});
+      setSelectedBranch(branch);
+      githubRepo.selectBranch(branch).catch(() => {
+        setSearchParams({version: prevParamVersion ?? ""});
+        setSelectedBranch(selectedBranch);
+      });
+    }
+  };
+  React.useEffect(() => {
+    setSelectedBranch(repo.value.currentBranch);
+  }, [repo.value.currentBranch]);
+  React.useEffect(() => {
+    const v = searchParams.get("version");
+    if (v && repo.value.branches.length > 0) {
+      onBranchSelect(v);
+    }
+  }, [repo.value.branches]);
+  return /* @__PURE__ */ React.createElement(Dropdown, {
+    options: repo.value.branches.map((branch) => ({
+      label: branch.label,
+      value: branch.name
+    })),
+    value: repo.value.currentBranch,
+    onChange: onBranchSelect,
+    allowClear: false
+  });
+};

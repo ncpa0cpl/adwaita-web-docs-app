@@ -1,1 +1,9 @@
-.content-root{position:relative;padding:2rem}.content-root .content-link{position:absolute;top:0;right:0}
+.content-root {
+  position: relative;
+  padding: 2rem;
+}
+.content-root .content-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
