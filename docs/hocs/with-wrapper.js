@@ -1,8 +1,1 @@
-import React from "../_snowpack/pkg/react.v18.2.0.js";
-export const withWrapper = (applyWrapper, Component) => {
-  return (props) => {
-    return applyWrapper(/* @__PURE__ */ React.createElement(Component, {
-      ...props
-    }));
-  };
-};
+var n=Object.defineProperty;var o=Object.prototype.hasOwnProperty;var p=Object.getOwnPropertySymbols,m=Object.prototype.propertyIsEnumerable;var a=(t,r,e)=>r in t?n(t,r,{enumerable:!0,configurable:!0,writable:!0,value:e}):t[r]=e,c=(t,r)=>{for(var e in r||(r={}))o.call(r,e)&&a(t,e,r[e]);if(p)for(var e of p(r))m.call(r,e)&&a(t,e,r[e]);return t};import s from"../_snowpack/pkg/react.js";export const withWrapper=(t,r)=>e=>t(s.createElement(r,c({},e)));

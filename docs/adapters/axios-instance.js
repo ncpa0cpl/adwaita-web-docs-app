@@ -1,5 +1,1 @@
-import axios from "../_snowpack/pkg/axios.v0.27.2.js";
-import {cache} from "./cache-adapter.js";
-export const Axios = axios.create({
-  adapter: cache.adapter
-});
+import a from"../_snowpack/pkg/axios.js";import{cache as o}from"./cache-adapter.js";export const Axios=a.create({adapter:o.adapter});

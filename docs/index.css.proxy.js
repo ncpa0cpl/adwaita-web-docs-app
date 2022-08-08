@@ -1,10 +1,16 @@
-// [snowpack] add styles to the page (skip if no document exists)
-if (typeof document !== 'undefined') {
-  const code = "html, body, #root {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n}\n\n.App {\n  width: 100%;\n  height: 100%;\n}\n\n.Popover__content {\n  min-width: 40px;\n  min-height: 7px;\n}";
-
-  const styleEl = document.createElement("style");
-  const codeEl = document.createTextNode(code);
-  styleEl.type = 'text/css';
-  styleEl.appendChild(codeEl);
-  document.head.appendChild(styleEl);
+if(typeof document!="undefined"){const e=`html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+.Popover__content {
+  min-width: 40px;
+  min-height: 7px;
+}`,n=document.createElement("style"),t=document.createTextNode(e);n.type="text/css",n.appendChild(t),document.head.appendChild(n)}

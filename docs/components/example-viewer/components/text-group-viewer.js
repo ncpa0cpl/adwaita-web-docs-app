@@ -1,13 +1,1 @@
-import React from "../../../_snowpack/pkg/react.v18.2.0.js";
-import {TextViewer} from "./text-viewer.js";
-export const TextGroupViewer = (props) => {
-  return /* @__PURE__ */ React.createElement("span", {
-    className: "text-group"
-  }, props.textGroup.texts.map((text) => {
-    return /* @__PURE__ */ React.createElement(TextViewer, {
-      key: text.id,
-      text,
-      isPartOfGroup: true
-    });
-  }));
-};
+import t from"../../../_snowpack/pkg/react.js";import{TextViewer as o}from"./text-viewer.js";export const TextGroupViewer=r=>t.createElement("span",{className:"text-group"},r.textGroup.texts.map(e=>t.createElement(o,{key:e.id,text:e,isPartOfGroup:!0})));

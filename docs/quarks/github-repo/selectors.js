@@ -1,5 +1,1 @@
-export const githubRepoSelectors = {
-  useBranchName(state) {
-    return state.currentBranch;
-  }
-};
+export const githubRepoSelectors={useBranchName(e){return e.currentBranch}};

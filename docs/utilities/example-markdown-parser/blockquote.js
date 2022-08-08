@@ -1,11 +1,1 @@
-import {v4} from "../../_snowpack/pkg/uuid.v8.3.2.js";
-export class Blockquote {
-  constructor() {
-    this.id = v4();
-    this.type = "blockquote";
-    this.elements = [];
-  }
-  addElement(...elem) {
-    this.elements.push(...elem);
-  }
-}
+import{v4 as e}from"../../_snowpack/pkg/uuid.js";export class Blockquote{constructor(){this.id=e(),this.type="blockquote",this.elements=[]}addElement(...t){this.elements.push(...t)}}

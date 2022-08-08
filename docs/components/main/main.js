@@ -1,14 +1,1 @@
-import cx from "../../_snowpack/pkg/clsx.v1.2.1.js";
-import React from "../../_snowpack/pkg/react.v18.2.0.js";
-import "./styles.css.proxy.js";
-export function Main({
-  className,
-  children,
-  ...props
-}) {
-  return /* @__PURE__ */ React.createElement("div", {
-    id: "main",
-    className: cx(className),
-    ...props
-  }, children);
-}
+var n=Object.defineProperty;var o=Object.prototype.hasOwnProperty;var e=Object.getOwnPropertySymbols,a=Object.prototype.propertyIsEnumerable;var p=(s,t,r)=>t in s?n(s,t,{enumerable:!0,configurable:!0,writable:!0,value:r}):s[t]=r,i=(s,t)=>{for(var r in t||(t={}))o.call(t,r)&&p(s,r,t[r]);if(e)for(var r of e(t))a.call(t,r)&&p(s,r,t[r]);return s};var m=(s,t)=>{var r={};for(var c in s)o.call(s,c)&&t.indexOf(c)<0&&(r[c]=s[c]);if(s!=null&&e)for(var c of e(s))t.indexOf(c)<0&&a.call(s,c)&&(r[c]=s[c]);return r};import k from"../../_snowpack/pkg/clsx.js";import l from"../../_snowpack/pkg/react.js";import"./styles.css.proxy.js";export function Main(c){var{className:s,children:t}=c,r=m(c,["className","children"]);return l.createElement("div",i({id:"main",className:k(s)},r),t)}

@@ -1,18 +1,1 @@
-import cx from "../../_snowpack/pkg/clsx.v1.2.1.js";
-import React from "../../_snowpack/pkg/react.v18.2.0.js";
-import {REPO_NAME, REPO_OWNER} from "../../adapters/github/constants.js";
-import {GithubCorner} from "../github-corner/github-corner.js";
-import "./styles.css.proxy.js";
-export function Content({
-  className,
-  children,
-  ...props
-}) {
-  return /* @__PURE__ */ React.createElement("div", {
-    className: cx(className, "content-root"),
-    ...props
-  }, /* @__PURE__ */ React.createElement(GithubCorner, {
-    className: "content-link",
-    url: `https://github.com/${REPO_OWNER}/${REPO_NAME}`
-  }), children);
-}
+var l=Object.defineProperty;var n=Object.prototype.hasOwnProperty;var s=Object.getOwnPropertySymbols,c=Object.prototype.propertyIsEnumerable;var m=(t,o,r)=>o in t?l(t,o,{enumerable:!0,configurable:!0,writable:!0,value:r}):t[o]=r,a=(t,o)=>{for(var r in o||(o={}))n.call(o,r)&&m(t,r,o[r]);if(s)for(var r of s(o))c.call(o,r)&&m(t,r,o[r]);return t};var i=(t,o)=>{var r={};for(var e in t)n.call(t,e)&&o.indexOf(e)<0&&(r[e]=t[e]);if(t!=null&&s)for(var e of s(t))o.indexOf(e)<0&&c.call(t,e)&&(r[e]=t[e]);return r};import u from"../../_snowpack/pkg/clsx.js";import p from"../../_snowpack/pkg/react.js";import{REPO_NAME as g,REPO_OWNER as h}from"../../adapters/github/constants.js";import{GithubCorner as E}from"../github-corner/github-corner.js";import"./styles.css.proxy.js";export function Content(e){var{className:t,children:o}=e,r=i(e,["className","children"]);return p.createElement("div",a({className:u(t,"content-root")},r),p.createElement(E,{className:"content-link",url:`https://github.com/${h}/${g}`}),o)}

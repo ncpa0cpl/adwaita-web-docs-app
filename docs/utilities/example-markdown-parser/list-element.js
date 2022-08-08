@@ -1,15 +1,1 @@
-import {v4} from "../../_snowpack/pkg/uuid.v8.3.2.js";
-export class ListElement {
-  constructor(elementType) {
-    this.elementType = elementType;
-    this.id = v4();
-    this.type = "list-element";
-    this.text = [];
-  }
-  addText(...text) {
-    this.text.push(...text);
-  }
-  addNestedList(nestedList) {
-    this.nestedList = nestedList;
-  }
-}
+import{v4 as e}from"../../_snowpack/pkg/uuid.js";export class ListElement{constructor(t){this.elementType=t,this.id=e(),this.type="list-element",this.text=[]}addText(...t){this.text.push(...t)}addNestedList(t){this.nestedList=t}}

@@ -1,5 +1,1 @@
-import React from "../../_snowpack/pkg/react.v18.2.0.js";
-const PROVIDERS = [];
-export const applyProviders = (children) => {
-  return PROVIDERS.reduceRight((children2, Provider) => /* @__PURE__ */ React.createElement(Provider, null, children2), children);
-};
+import c from"../../_snowpack/pkg/react.js";const o=[];export const applyProviders=e=>o.reduceRight((r,t)=>c.createElement(t,null,r),e);

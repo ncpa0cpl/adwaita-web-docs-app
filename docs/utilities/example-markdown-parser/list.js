@@ -1,11 +1,1 @@
-import {v4} from "../../_snowpack/pkg/uuid.v8.3.2.js";
-export class List {
-  constructor() {
-    this.id = v4();
-    this.type = "list";
-    this.elements = [];
-  }
-  addElement(...elem) {
-    this.elements.push(...elem);
-  }
-}
+import{v4 as t}from"../../_snowpack/pkg/uuid.js";export class List{constructor(){this.id=t(),this.type="list",this.elements=[]}addElement(...s){this.elements.push(...s)}}

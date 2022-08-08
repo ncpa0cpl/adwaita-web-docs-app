@@ -1,10 +1,1 @@
-import {Text} from "../../../_snowpack/pkg/adwaita-web.v0.1.1-canary-83f07fb4b5a2324370770d2358c58f1bf3cb18f5.0.js";
-import React from "../../../_snowpack/pkg/react.v18.2.0.js";
-export const Description = ({description}) => {
-  if (description)
-    return /* @__PURE__ */ React.createElement(Text, {
-      as: "pre",
-      className: "description"
-    }, description);
-  return /* @__PURE__ */ React.createElement(React.Fragment, null);
-};
+import{Text as r}from"../../../_snowpack/pkg/adwaita-web.js";import e from"../../../_snowpack/pkg/react.js";export const Description=({description:t})=>t?e.createElement(r,{as:"pre",className:"description"},t):e.createElement(e.Fragment,null);

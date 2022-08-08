@@ -1,8 +1,1 @@
-import {sortAlphanumeric} from "./sort-alphanum.js";
-export const sortTagAndBranches = (list, getTagOrBranch) => {
-  const tags = list.filter((elem) => getTagOrBranch(elem).type === "tag");
-  const branches = list.filter((elem) => getTagOrBranch(elem).type === "branch");
-  const sortedTags = sortAlphanumeric(tags, (tag) => getTagOrBranch(tag).name).reverse();
-  const sortedBranches = sortAlphanumeric(branches, (branch) => getTagOrBranch(branch).name);
-  return [...sortedTags, ...sortedBranches];
-};
+import{sortAlphanumeric as o}from"./sort-alphanum.js";export const sortTagAndBranches=(e,t)=>{const r=e.filter(s=>t(s).type==="tag"),n=e.filter(s=>t(s).type==="branch"),a=o(r,s=>t(s).name).reverse(),c=o(n,s=>t(s).name);return[...a,...c]};

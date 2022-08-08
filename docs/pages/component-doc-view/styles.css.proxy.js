@@ -1,10 +1,1 @@
-// [snowpack] add styles to the page (skip if no document exists)
-if (typeof document !== 'undefined') {
-  const code = ".source-link {\n  margin-left: 15px;\n}\n\n.schema-viewer-container {\n  margin-bottom: 30px;\n}";
-
-  const styleEl = document.createElement("style");
-  const codeEl = document.createTextNode(code);
-  styleEl.type = 'text/css';
-  styleEl.appendChild(codeEl);
-  document.head.appendChild(styleEl);
-}
+if(typeof document!="undefined"){const t=".source-link{margin-left:15px}.schema-viewer-container{margin-bottom:30px}",e=document.createElement("style"),n=document.createTextNode(t);e.type="text/css",e.appendChild(n),document.head.appendChild(e)}

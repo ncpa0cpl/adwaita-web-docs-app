@@ -1,17 +1,1 @@
-import {quark} from "../../_snowpack/pkg/react-quarks.v2.0.2.js";
-import {githubRepo} from "../github-repo/github-repo.js";
-import {examplesActions} from "./actions.js";
-import {exampleSelectors} from "./selectors.js";
-export const examples = quark({
-  components: {}
-}, {actions: examplesActions, selectors: exampleSelectors});
-githubRepo.subscribe((state) => {
-  if (state.currentBranch) {
-    const branch = state.branches.find((b) => b.name === state.currentBranch);
-    if (branch.type === "tag") {
-      examples.setFromGithubTag(branch);
-    } else {
-      examples.setFromGithubBranch(branch.name);
-    }
-  }
-});
+import{quark as s}from"../../_snowpack/pkg/react-quarks.js";import{githubRepo as t}from"../github-repo/github-repo.js";import{examplesActions as c}from"./actions.js";import{exampleSelectors as n}from"./selectors.js";export const examples=s({components:{}},{actions:c,selectors:n});t.subscribe(r=>{if(r.currentBranch){const e=r.branches.find(o=>o.name===r.currentBranch);e.type==="tag"?examples.setFromGithubTag(e):examples.setFromGithubBranch(e.name)}});
