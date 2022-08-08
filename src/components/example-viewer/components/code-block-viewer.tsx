@@ -38,6 +38,7 @@ export default App;`,
           options={{
             recompileDelay: 2500,
             activeFile: "/Example.tsx",
+            editorHeight: 500,
           }}
         />
       </ErrorBoundary>

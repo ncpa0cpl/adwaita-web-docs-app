@@ -1,4 +1,4 @@
-import { Autocomplete, Box, Label, Text } from "adwaita-web";
+import { Box, Label, Text } from "adwaita-web";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { REPO_NAME, REPO_OWNER } from "../../adapters/github/constants";
@@ -55,12 +55,6 @@ export const ComponentDocViewPage = () => {
 
   return (
     <Content>
-      <Autocomplete
-        options={[]}
-        onChange={(value) => {
-          console.log(value);
-        }}
-      />
       {component && componentName ? (
         <div>
           <h1>{`<${componentName} />`}</h1>
