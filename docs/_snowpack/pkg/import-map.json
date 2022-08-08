@@ -1,12 +1,14 @@
 {
   "imports": {
+    "@codesandbox/sandpack-react": "./@codesandbox/sandpack-react.js",
     "adwaita-web": "./adwaita-web.js",
     "axios": "./axios.js",
-    "axios-cache-adapter": "./axios-cache-adapter.js",
+    "axios-cache-adapter/src/index": "./axios-cache-adapter/src/index.js",
     "clsx": "./clsx.js",
     "fzy.js": "./fzyjs.js",
     "localforage": "./localforage.js",
     "natural-compare": "./natural-compare.js",
+    "path-browserify": "./path-browserify.js",
     "prettier": "./prettier.js",
     "prettier/esm/parser-babel": "./prettier/esm/parser-babel.js",
     "rambda": "./rambda.js",
@@ -15,6 +17,10 @@
     "react-highlight": "./react-highlight.js",
     "react-json-view": "./react-json-view.js",
     "react-quarks": "./react-quarks.js",
-    "react-router-dom": "./react-router-dom.js"
+    "react-router-dom": "./react-router-dom.js",
+    "remark-gfm": "./remark-gfm.js",
+    "remark-parse": "./remark-parse.js",
+    "unified": "./unified.js",
+    "uuid": "./uuid.js"
   }
 }

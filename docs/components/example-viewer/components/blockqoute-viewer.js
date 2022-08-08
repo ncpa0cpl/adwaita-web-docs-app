@@ -1,0 +1,1 @@
+import{Alert as r}from"../../../_snowpack/pkg/adwaita-web.js";import t from"../../../_snowpack/pkg/react.js";import{MarkdownElementViewer as a}from"./markdown-element-viewer.js";export const BlockquoteViewer=o=>t.createElement(r,{showClose:!1},o.blockquote.elements.map(e=>t.createElement(a,{key:e.id,element:e})));

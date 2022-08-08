@@ -1,0 +1,1 @@
+import{v4 as o}from"../../_snowpack/pkg/uuid.js";export class Example{constructor(s){this.label=s,this.id=o(),this.codeBlocks=[],this.description=[]}addCodeBlock(s){this.codeBlocks.push(s)}addDescriptionBlock(...s){this.description.push(...s)}}

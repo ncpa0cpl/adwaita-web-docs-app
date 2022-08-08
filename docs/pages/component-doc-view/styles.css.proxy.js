@@ -1,1 +1,1 @@
-if(typeof document!="undefined"){const t=".source-link{margin-left:15px}",e=document.createElement("style"),d=document.createTextNode(t);e.type="text/css",e.appendChild(d),document.head.appendChild(e)}
+if(typeof document!="undefined"){const t=".source-link{margin-left:15px}.schema-viewer-container{margin-bottom:30px}",e=document.createElement("style"),n=document.createTextNode(t);e.type="text/css",e.appendChild(n),document.head.appendChild(e)}

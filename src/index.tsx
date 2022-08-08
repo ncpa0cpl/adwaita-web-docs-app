@@ -16,8 +16,10 @@ window.history.replaceState(
 if (rootElem) {
   const root = createRoot(rootElem);
   root.render(
-    <Router basename={IS_DEV ? "" : ROUTER_BASE_URL}>
-      <App />
-    </Router>
+    <React.StrictMode>
+      <Router basename={IS_DEV ? "" : ROUTER_BASE_URL}>
+        <App />
+      </Router>
+    </React.StrictMode>
   );
 }

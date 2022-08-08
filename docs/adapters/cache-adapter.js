@@ -1,1 +1,1 @@
-import{setupCache as e}from"../_snowpack/pkg/axios-cache-adapter.js";import a from"../_snowpack/pkg/localforage.js";const o=a.createInstance({name:"axios-cache"});export const cache=e({maxAge:15*60*1e3,store:o,exclude:{query:!1}});
+import{setupCache as e}from"../_snowpack/pkg/axios-cache-adapter/src/index.js";import a from"../_snowpack/pkg/localforage.js";const o=a.createInstance({name:"axios-cache"});export const cache=e({maxAge:30*60*1e3,store:o,exclude:{query:!1}});

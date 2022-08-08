@@ -1,4 +1,4 @@
-import { setupCache } from "axios-cache-adapter";
+import { setupCache } from "axios-cache-adapter/src/index";
 import localforage from "localforage";
 
 const forageStore = localforage.createInstance({
@@ -6,7 +6,7 @@ const forageStore = localforage.createInstance({
 });
 
 export const cache = setupCache({
-  maxAge: 15 * 60 * 1000,
+  maxAge: 30 * 60 * 1000,
   store: forageStore,
   exclude: { query: false },
 });

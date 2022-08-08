@@ -1,0 +1,1 @@
+import e from"../../../_snowpack/pkg/react.js";export class ErrorBoundary extends e.Component{constructor(r){super(r);this.state={hasError:!1}}static getDerivedStateFromError(r){return{hasError:!0}}componentDidCatch(r,t){console.error(r,t)}render(){return this.state.hasError?e.createElement("h1",null,"Something went wrong."):this.props.children}}

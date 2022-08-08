@@ -5,6 +5,7 @@ import { ComponentDocViewPage } from "../pages/component-doc-view/component-doc-
 import { ErrorPage } from "../pages/error-page/error-page";
 import { HomePage } from "../pages/home/home";
 import { githubRepo } from "../quarks/github-repo/github-repo";
+import { applyProviders } from "./app-context-providers/providers";
 
 import "./app.css";
 import { Main } from "./main/main";
@@ -19,7 +20,7 @@ export function App() {
     });
   }, []);
 
-  return (
+  return applyProviders(
     <Box vertical compact className="App background">
       <Paned defaultSize={230} fill border="handle">
         <Sidebar />

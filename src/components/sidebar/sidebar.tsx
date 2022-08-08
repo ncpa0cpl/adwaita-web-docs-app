@@ -1,4 +1,11 @@
-import { Box, Icon, Input, Label, List } from "adwaita-web";
+import {
+  Box,
+  Icon,
+  Input,
+  Label,
+  List,
+  ListItem as AWListItem,
+} from "adwaita-web";
 import * as fzy from "fzy.js";
 import { sortBy } from "rambda";
 import React, { useState } from "react";
@@ -66,11 +73,11 @@ export function Sidebar() {
           />
         ))}
         {filteredRoutes.length === 0 && (
-          <List.Item className="align">
+          <AWListItem className="align">
             <Label muted italic>
               <small>No results found. Try searching for something else.</small>
             </Label>
-          </List.Item>
+          </AWListItem>
         )}
       </List>
     </Box>
