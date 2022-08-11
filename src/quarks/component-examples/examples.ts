@@ -4,6 +4,7 @@ import { examplesActions } from "./actions";
 import { exampleSelectors } from "./selectors";
 
 export type Examples = {
+  wrapper?: string;
   components: Record<string, string>;
 };
 

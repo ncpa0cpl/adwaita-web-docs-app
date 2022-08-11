@@ -5,4 +5,7 @@ export const exampleSelectors = {
     if (!name) return undefined;
     return state.components[name];
   },
+  useSelectExampleWrapper(state: Examples) {
+    return state.wrapper;
+  },
 };
