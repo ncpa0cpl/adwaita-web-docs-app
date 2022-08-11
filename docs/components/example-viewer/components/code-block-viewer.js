@@ -2,13 +2,13 @@ import{Sandpack as l}from"../../../_snowpack/pkg/@codesandbox/sandpack-react.js"
   html,
   body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     margin: unset;
   }
   
   #root {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
   }
 `;export const CodeBlockViewer=t=>{const o=n.useSelectExampleWrapper(),p=e.useMemo(()=>Object.fromEntries(t.codeBlock.getDependencies().map(({package:m,version:c})=>[m,c])),[t.codeBlock]),r=e.useMemo(()=>t.codeBlock.getCode(),[t.codeBlock]),s=e.useMemo(()=>o?{"/styles.css":a,"/Wrapper.tsx":o,"/Example.tsx":r,"/App.js":`
 
