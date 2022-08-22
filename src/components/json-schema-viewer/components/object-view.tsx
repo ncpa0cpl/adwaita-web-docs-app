@@ -1,4 +1,4 @@
-import { Label } from "adwaita-web";
+import { Box, Label } from "adwaita-web";
 import type { JSONSchema4 } from "json-schema";
 import React from "react";
 import { isRequired } from "../utils/is-required";
@@ -23,7 +23,8 @@ export const ObjectView = ({
   const isReq = isRequired(parent, name);
 
   const hasProperties =
-    schema.properties && Object.keys(schema.properties).length > 0;
+    (schema.properties && Object.keys(schema.properties).length > 0) ||
+    typeof schema.additionalProperties === "object";
 
   return (
     <>
@@ -58,16 +59,63 @@ export const ObjectView = ({
           {hasProperties && (
             <>
               <tbody>
-                {Object.entries(schema.properties ?? {}).map(
-                  ([propertyName, propertySchema]) => (
-                    <tr key={propertyName}>
-                      <SchemaView
-                        name={propertyName}
-                        parent={schema}
-                        schema={propertySchema}
-                      />
-                    </tr>
+                {schema.properties &&
+                Object.keys(schema.properties).length > 0 ? (
+                  Object.entries(schema.properties).map(
+                    ([propertyName, propertySchema]) => (
+                      <tr key={propertyName}>
+                        <SchemaView
+                          name={propertyName}
+                          parent={schema}
+                          schema={propertySchema}
+                        />
+                      </tr>
+                    )
                   )
+                ) : (
+                  <tr>
+                    <td>
+                      {schema.propertyNames ? (
+                        <Box horizontal align className="index-signature">
+                          <p className="before-after-symbol">{"["}</p>
+                          <table className="no-paddings no-margins no-borders">
+                            <tbody>
+                              <tr>
+                                <SchemaView
+                                  parent={schema}
+                                  schema={schema.propertyNames}
+                                />
+                              </tr>
+                            </tbody>
+                          </table>
+                          <p className="before-after-symbol">{"]"}</p>
+                        </Box>
+                      ) : (
+                        <PropertyNameLabel
+                          indexSignature
+                          name="[string | number | symbol]"
+                        />
+                      )}
+                    </td>
+                    <td>
+                      <Description description={schema.description} />
+                    </td>
+                    <td>
+                      {schema.additionalProperties &&
+                        typeof schema.additionalProperties === "object" && (
+                          <table className="no-paddings no-margins no-borders">
+                            <tbody>
+                              <tr>
+                                <SchemaView
+                                  parent={schema}
+                                  schema={schema.additionalProperties}
+                                />
+                              </tr>
+                            </tbody>
+                          </table>
+                        )}
+                    </td>
+                  </tr>
                 )}
               </tbody>
               <tfoot>

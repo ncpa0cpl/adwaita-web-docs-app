@@ -44,7 +44,7 @@
         & > tbody {
             & > tr {
                 td:first-child {
-                    padding-left: 20px !important;
+                    padding-left: 20px;
                 }
             }
         }
@@ -83,6 +83,9 @@
             .property-name-cell {
                 vertical-align: text-top;
                 padding-right: 10px;
+                .index-signature {
+                    color: #ddb01b !important;
+                }
             }
 
             .property-name {
@@ -134,6 +137,56 @@
 
         .type-column {
             width: 99%;
+        }
+    }
+
+    .index-signature {
+        color: #ddb01b !important;
+        & * {
+            color: #ddb01b !important;
+        }
+
+        & table {
+            margin: unset;
+            border: unset;
+            td:first-child {
+                padding-left: unset;
+            }
+        }
+
+        & .before-after-symbol {
+            margin: unset;
+            height: fit-content;
+        }
+    }
+
+    table.index-signature {
+        margin: unset;
+        border: unset;
+        td:first-child {
+            padding-left: unset;
+        }
+    }
+
+    table.no-paddings {
+        padding: unset !important;
+        tr,
+        td {
+            padding: unset !important;
+        }
+    }
+    table.no-margins {
+        margin: unset !important;
+        tr,
+        td {
+            margin: unset !important;
+        }
+    }
+    table.no-borders {
+        border: unset !important;
+        tr,
+        td {
+            border: unset !important;
         }
     }
 }
